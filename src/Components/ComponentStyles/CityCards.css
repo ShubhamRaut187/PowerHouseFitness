@@ -1,0 +1,62 @@
+.CityCard_main{
+    width: 100%;
+    height: 400px;
+    /* border: 2px solid red; */
+    /* padding: 20px; */
+}
+.City_Card_slider{
+    width: 80%;
+    margin: auto;
+    /* border: 2px solid red; */
+}
+.city_card_main{
+    /* width: 35%; */
+    /* border: 2px solid red; */
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #181f2a;
+    padding: 5px;
+}
+.citycard_city_img_div{
+    width: 100%;
+    height: 300px;
+}
+.citycard_city_img_div>img{
+    width: 100%;
+    height: 300px;
+}
+.city_card_description_div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.city_card_description_div>h3{
+    font-family: 'Mina',sans-serif;
+    color: #7cff01;
+}
+.slick-slide > div{
+    margin: 0 10px;
+    /* border: 2px solid green;
+    z-index: -1; */
+   
+}
+/* Media */
+/* Small Screens */
+@media screen and (min-width:320px) and (max-width:767px){
+   
+}
+
+/* Medium Screens */
+@media screen and (min-width:768px) and (max-width:1024px){
+    .MessageInfo_main{
+        height: 350px;
+        margin-top: 10px;
+    }
+    .MessageInfo_info_div>p{
+        text-align: justify;
+    }
+}

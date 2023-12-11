@@ -1,0 +1,64 @@
+.MessageInfo_main{
+    margin-top: 20px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 15px; */
+    /* background-color: #; */
+}
+.MessageInfo_img_div{
+    width: 40%;
+    height: 300px;
+    padding: 10px;
+}
+.MessageInfo_img_div > img{
+    width: 100%;
+    height: 300px;
+}
+.MessageInfo_info_div{
+    width: 60%;
+}
+.MessageInfo_info_div>h1{
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    /* color: ; */
+    text-align: center;
+}
+.MessageInfo_info_div>p{
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 0px;
+    text-align: center;
+    /* color: white; */
+    font-weight: 600;
+}
+/* Media */
+/* Small Screens */
+@media screen and (min-width:320px) and (max-width:767px){
+    .MessageInfo_main{
+        flex-direction: column;
+        height: 900px;
+        margin-top: 10px;
+    }
+    .MessageInfo_img_div{
+        width: 100%;
+    }
+    .MessageInfo_info_div{
+        width: 100%;
+    }
+   
+}
+
+/* Medium Screens */
+@media screen and (min-width:768px) and (max-width:1024px){
+    .MessageInfo_main{
+        height: 350px;
+        margin-top: 10px;
+    }
+    .MessageInfo_info_div>p{
+        text-align: justify;
+    }
+}

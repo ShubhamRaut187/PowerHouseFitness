@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Clubs(props) {
+function ProtectedRoutes(props) {
     return (
         <div>
-            <h1>Clubs</h1>
+            
         </div>
     );
 }
 
-export default Clubs;
+export default ProtectedRoutes;

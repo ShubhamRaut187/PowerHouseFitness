@@ -1,0 +1,12 @@
+.PageHeading_Main{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.PageHeading_Main{
+    font-family: 'Mina', sans-serif;
+    color: #181f2a;
+    text-align: center;
+    /* text-transform: uppercase; */
+}
