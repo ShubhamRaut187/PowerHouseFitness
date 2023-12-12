@@ -1,0 +1,24 @@
+.productcards_parent_container{
+    width: 98%;
+    margin: 15px auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    align-items: center;
+    gap: 20px;
+}
+
+/* Media */
+/* Small Screens */
+@media screen and (min-width:320px) and (max-width:767px){
+    .productcards_parent_container{
+        grid-template-columns: repeat(1,1fr);
+    }
+   
+}
+
+/* Medium Screens */
+@media screen and (min-width:768px) and (max-width:1024px){
+    .productcards_parent_container{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
