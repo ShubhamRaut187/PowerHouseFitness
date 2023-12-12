@@ -1,9 +1,22 @@
 import React from 'react';
+import PageTitle from '../Components/PageTitle'
+import ClubFilter from '../Components/ClubFilter';
+import './PageStyles/Clubs.css'
+import ClubCard from '../Components/ClubCard';
+
 
 function Clubs(props) {
     return (
         <div>
-            <h1>Clubs</h1>
+            <PageTitle Title={'Our Clubs'}/>
+            <ClubFilter/>
+            <div className='clubcard_parent_container'>
+                <ClubCard/>
+                <ClubCard/>
+                <ClubCard/>
+                <ClubCard/>
+                <ClubCard/>
+            </div>
         </div>
     );
 }

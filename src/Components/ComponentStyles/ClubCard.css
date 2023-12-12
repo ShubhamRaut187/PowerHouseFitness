@@ -1,0 +1,67 @@
+.clubcard_main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid green; */
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.clubcard_img_div{
+    width: 50%;
+    height: 300px;
+    border-radius: 3px;
+}
+.clubcard_img_div>img{
+    width: 100%;
+    height: 300px;
+    border-radius: 3px;
+}
+.clubcard_info_div{
+    width: 50%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.clubcard_name{
+    font-size: 18px;
+    font-weight: 700;
+    color: #181f2a;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.clubcard_area{
+    margin-top: 0px;
+    margin-bottom: 2px;
+    font-weight: 700;
+    color: gray;
+}
+.clubcard_contact{
+    margin-top: 2px;
+    margin-bottom: 0px;
+    font-weight: 700;
+    color: #181f2a;
+}
+.clubcard_email{
+    margin-top:0px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #181f2a;
+}
+.clubcard_details_btn{
+    margin-top: 10px;
+    width: 70%;
+    height: 35px;
+    border-radius: 3px;
+    border: none;
+    background-color: #7cff01;
+    color: #181f2a;
+    font-size: 16px;
+    font-weight: 700;
+}
+.clubcard_details_btn:hover{
+    background-color: #181f2a;
+    color: #7cff01;
+}
+

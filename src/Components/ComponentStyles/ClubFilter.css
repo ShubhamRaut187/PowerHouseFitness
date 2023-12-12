@@ -1,0 +1,40 @@
+.club_filter_main{
+    margin: 20px auto;
+    width: 60%;
+    height: 70px;
+    background-color: #181f2a;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.club_filter_main>p{
+    color: #7cff01;
+    font-weight: 600;
+    margin-left: 15px;
+}
+.club_filter_main>select{
+    width: 20%;
+    height: 40px;
+    margin-left: 15px;
+    border: 1px solid #7cff01;
+    background-color: #181f2a;
+    color: #7cff01;
+}
+
+/* Media */
+/* Small Screens */
+@media screen and (min-width:320px) and (max-width:767px){
+    .club_filter_main{
+        width: 80%;
+    }
+    .club_filter_main>select{
+        width: 50%;
+    }
+   
+}
+
+/* Medium Screens */
+@media screen and (min-width:768px) and (max-width:1024px){
+   
+}
