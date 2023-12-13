@@ -1,9 +1,12 @@
 import React from 'react';
-
+import './PageStyles/ProductDescription.css'
+import PageTitle from '../Components/PageTitle';
+import ProductDescriptionCard from '../Components/ProductDescriptionCard';
 function ProductDescription(props) {
     return (
         <div>
-            <h1>Product Description</h1>
+           <PageTitle Title={'Our Products'}/>
+           <ProductDescriptionCard/>
         </div>
     );
 }

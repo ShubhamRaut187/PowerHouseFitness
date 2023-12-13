@@ -22,10 +22,10 @@ function AllRoutes(props) {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/franchise' element={<Franchise/>}/>
                 <Route path='/clubs' element={<Clubs/>}/>
-                <Route path='/clubsdescription' element={<ClubsDescription/>}/>
+                <Route path='/clubsdescription/:id' element={<ClubsDescription/>}/>
                 <Route path='/signuplogin' element={<SignupLogin/>}/>
                 <Route path='/products' element={<Products/>}/>
-                <Route path='/' element={<ProductDescription/>}/>
+                <Route path='/productdescription/:id' element={<ProductDescription/>}/>
                 <Route path='/userprofile' element={<UserProfile/>}/>
                 <Route path='/checkout' element={<Checkout/>}/>
                 <Route path='/cart' element={<Cart/>}/>
