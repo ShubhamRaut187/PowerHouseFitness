@@ -1,0 +1,11 @@
+export const Login = "Login";
+export const Logout = "Logout";
+export const AddProduct = "AddProduct";
+export const IncreaseQuantity = "IncreaseQuantity";
+export const ReduceQuantity = "ReduceQuantity";
+export const RemoveProduct = "RemoveProduct";
+export const HandelQuantity = "HandelQuantity";
+export const HandelEmptyCart = 'EmptyCart';
+export const AddClub = 'AddClub';
+export const AddPlan = 'AddPlan';
+export const AddTrainer = 'AddTrainer'

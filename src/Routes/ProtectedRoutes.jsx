@@ -1,11 +1,16 @@
 import React from 'react';
-
-function ProtectedRoutes(props) {
-    return (
-        <div>
-            
-        </div>
-    );
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+function ProtectedRoutes({children}) {
+    let status = useSelector((store)=>{
+        return store.loginReducer.status;
+    })
+    if(status === "in"){
+        return children;
+    }
+    else{
+        return <Navigate to='/signuplogin'/>
+    }
 }
 
 export default ProtectedRoutes;

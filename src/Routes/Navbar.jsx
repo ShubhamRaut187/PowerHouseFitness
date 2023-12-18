@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import { Link,useNavigate } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
 import './Styles/Navbar.css'
 
 function Navbar(props) {
@@ -14,7 +14,10 @@ function Navbar(props) {
     let returnhome=()=>{
         Navigate('/')
     }
-    
+    let LoginRouteConfig = useSelector((store)=>{
+        return store.loginReducer
+    })
+    // console.log(LoginRouteConfig.LoginRouteConfig.path);
     return (
         <div className='nav_main'>
            <div className='nav_decor1'>
@@ -29,14 +32,11 @@ function Navbar(props) {
                 <li className='nav_item'><Link to='/franchise' className='nav_link'>Franchise</Link></li>
                 <li className='nav_item'><Link to='/clubs' className='nav_link'>Clubs</Link></li>
                 <li className='nav_item'><Link to='/products' className='nav_link'>Products</Link></li>
-                {/* <li className='nav_item'><Link to='/stores' className='nav_link'>Stores</Link></li> */}
-                <li className='nav_item'><Link to='/signuplogin' className='nav_link'>Login</Link></li>
+                {
+                    LoginRouteConfig.status === 'in' ? <li className='nav_item'><Link to='/userprofile' className='nav_link'>My Profile</Link></li> : null
+                }
+                <li className='nav_item'><Link to={LoginRouteConfig.LoginRouteConfig.path} className='nav_link'>{LoginRouteConfig.LoginRouteConfig.name}</Link></li>
                 
-                {/* <li className='nav_item'><Link to={LoginRouteConfig.LoginRouteConfig.path} className='nav_link'>{LoginRouteConfig.LoginRouteConfig.name}</Link></li> */}
-                
-                {/* {
-                    LoginRouteConfig.status === "in" ? <li className='nav_item'><Link to='/cart' className='nav_link'>Cart</Link></li> : null
-                } */}
             </ul>
             <div onClick={navToggle} className={toggleIcon}>
                 <div className='line1'></div>

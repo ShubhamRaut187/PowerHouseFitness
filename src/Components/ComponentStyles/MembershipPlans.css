@@ -1,0 +1,60 @@
+.plans_main{
+    margin: 10px auto;
+    width: 90%;
+    /* border: 2px solid black; */
+    /* height: 350px; */
+    /* padding: 10px; */
+}
+.plan_card{
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 200px;
+    border: 1px solid #7cff01;
+    border-radius: 3px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.plan_card_name{
+    text-align: center;
+    color: #181f2a;
+    text-decoration: overline;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.plan_card_duration{
+    font-weight: 700;
+    text-align: center;
+    color: gray;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.plan_card_facilities{
+    text-align: center;
+    font-weight: 700;
+    color: #181f2a;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.plan_card_fees{
+    text-align: center;
+    font-weight: 700;
+    color: gray;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+.plan_card_select_btn{
+    width: 80%;
+    height: 30px;
+    border: none;
+    background-color: #7cff01;
+    color: #181f2a;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 3px;
+}
+.plan_card_select_btn:hover{
+    background-color: #181f2a;
+    color: #7cff01;
+}

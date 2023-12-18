@@ -1,7 +1,9 @@
 import {legacy_createStore as createstore,combineReducers} from 'redux';
 import {persistReducer,persistStore} from 'redux-persist'
 import storageSession from 'redux-persist/lib/storage/session'
-
+import { loginReducer } from './loginReducer';
+import { cartReducer } from './cartReducer';
+import { clubReducer } from './clubReducer';
 
 const persistConfig = {
     key:'root',
@@ -9,7 +11,11 @@ const persistConfig = {
     storage:storageSession
 }
 
-const rootreducer = combineReducers({});
+const rootreducer = combineReducers({
+    loginReducer,
+    cartReducer,
+    clubReducer
+});
 
 const persistedReducer = persistReducer(persistConfig,rootreducer);
 

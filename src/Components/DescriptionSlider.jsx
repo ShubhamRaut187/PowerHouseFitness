@@ -8,13 +8,13 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 
-function DescriptionSlider(props) {
-    let Images = [
-        'https://img3.hkrtcdn.com/27426/prd_2742542-MuscleBlaze-Biozyme-Performance-Whey-4.4-lb-Rich-Chocolate_o.jpg',
-        'https://img1.hkrtcdn.com/27426/prd_2742540-MuscleBlaze-Biozyme-Performance-Whey-4.4-lb-Rich-Chocolate_o.jpg',
-        'https://img10.hkrtcdn.com/15961/prd_1596049-MuscleBlaze-Biozyme-Performance-Whey-4.4-lb-Rich-Chocolate_o.jpg',
-        'https://img3.hkrtcdn.com/27426/prd_2742552-MuscleBlaze-Biozyme-Performance-Whey-4.4-lb-Rich-Chocolate_o.jpg'
-    ]
+function DescriptionSlider({Images}) {
+    // let Images = [
+    //     'https://img3.hkrtcdn.com/27426/prd_2742542-MuscleBlaze-Biozyme-Performance-Whey-4.4-lb-Rich-Chocolate_o.jpg',
+    //     'https://img1.hkrtcdn.com/27426/prd_2742540-MuscleBlaze-Biozyme-Performance-Whey-4.4-lb-Rich-Chocolate_o.jpg',
+    //     'https://img10.hkrtcdn.com/15961/prd_1596049-MuscleBlaze-Biozyme-Performance-Whey-4.4-lb-Rich-Chocolate_o.jpg',
+    //     'https://img3.hkrtcdn.com/27426/prd_2742552-MuscleBlaze-Biozyme-Performance-Whey-4.4-lb-Rich-Chocolate_o.jpg'
+    // ]
     const settings = {
         dots: true,
         fade: true,
@@ -28,7 +28,7 @@ function DescriptionSlider(props) {
             <Slider {...settings}>
                 {
                     Images.map((elem,index)=>{
-                       return <div className='description_img_card'>
+                       return <div className='description_img_card' key={index}>
                             <img src={elem} alt={index} />
                         </div>
                     })

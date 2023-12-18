@@ -52,6 +52,8 @@
     margin-top: 5px;
     font-weight: 700;
     margin-bottom: 2px;
+    color: gray;
+    text-decoration: line-through;
 }
 .productdescription_starting_price{
     margin-top: 0px;
@@ -105,6 +107,9 @@
 
 /* Medium Screens */
 @media screen and (min-width:768px) and (max-width:1024px){
+    .productdescriptioncard_main{
+        height: 650px;
+    }
     .productdescription_member_btn{
         width: 40%;
        }

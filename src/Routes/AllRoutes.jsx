@@ -1,6 +1,8 @@
 import React from 'react';
 import {Routes,Route} from 'react-router-dom';
 
+// Protected Routes
+import ProtectedRoutes from './ProtectedRoutes';
 
 // Pages
 import Home from '../Pages/Home';
@@ -21,14 +23,14 @@ function AllRoutes(props) {
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/franchise' element={<Franchise/>}/>
-                <Route path='/clubs' element={<Clubs/>}/>
-                <Route path='/clubsdescription/:id' element={<ClubsDescription/>}/>
+                <Route path='/clubs' element={<ProtectedRoutes><Clubs/></ProtectedRoutes>}/>
+                <Route path='/clubsdescription/:id' element={<ProtectedRoutes><ClubsDescription/></ProtectedRoutes>}/>
                 <Route path='/signuplogin' element={<SignupLogin/>}/>
-                <Route path='/products' element={<Products/>}/>
-                <Route path='/productdescription/:id' element={<ProductDescription/>}/>
-                <Route path='/userprofile' element={<UserProfile/>}/>
-                <Route path='/checkout' element={<Checkout/>}/>
-                <Route path='/cart' element={<Cart/>}/>
+                <Route path='/products' element={<ProtectedRoutes><Products/></ProtectedRoutes>}/>
+                <Route path='/productdescription/:id' element={<ProtectedRoutes><ProductDescription/></ProtectedRoutes>}/>
+                <Route path='/userprofile' element={<ProtectedRoutes><UserProfile/></ProtectedRoutes>}/>
+                <Route path='/clubcheckout' element={<ProtectedRoutes><Checkout/></ProtectedRoutes>}/>
+                <Route path='/cart' element={<ProtectedRoutes><Cart/></ProtectedRoutes>}/>
             </Routes>
         </div>
     );

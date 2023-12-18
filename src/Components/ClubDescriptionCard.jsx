@@ -1,29 +1,77 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
+import { useSelector,useDispatch } from 'react-redux';
+import { handleAddClub } from '../Redux/action';
+import { useNavigate } from 'react-router-dom';
 import './ComponentStyles/ClubDescriptionCard.css'
 import DescriptionSlider from './DescriptionSlider';
 import Tags from './Tags';
 
 
-function ClubDescriptionCard(props) {
+function ClubDescriptionCard({Club}) {
+    let dispatch = useDispatch();
+    let Navigate = useNavigate();
+    let Plan = useSelector((store)=>{
+        return store.clubReducer.Plan
+    })
+    // let [Club,SetClub] = useState({});
+    // let {id} = useParams();
+    // let Token = useSelector((store)=>{
+    //     return store.loginReducer.user.Token
+    // })
+
+    // useEffect(()=>{
+    //     fetch(`http://localhost:8000/clubs/${id}`,{
+    //         headers:{
+    //             'authorization':`Bearer ${Token}`
+    //         }
+    //     }).then((response)=>{
+    //         return response.json();
+    //     }).then((response)=>{
+    //         console.log(response);
+    //         SetClub(response.Club);
+    //     }).catch((error)=>{
+    //         console.log(error);
+    //     })
+
+    // },[id,Token])
+
+
+    let plancheck = () => {
+        let keys = Object.keys(Plan);
+        if(keys.length === 0){
+            alert('Please Select a Membership Plan...!')
+        }
+        else{
+            dispatch(handleAddClub(Club));
+            Navigate('/clubcheckout')
+        }
+    }
+
+
+
     return (
         <div className='clubdescriptioncard_main'>
             <div className='clubdescriptioncard_img_div'>
-                <DescriptionSlider/>
+                {
+                    !Club.Images?<></>:<DescriptionSlider Images={Club.Images}/>
+                }
             </div>
             <div className='clubdescriptioncard_info_div'>
-                <h1 className='clubdescription_clubname'>Power House Ultra, Kothrud</h1>
-                <p className='clubdescription_area'>kothrud</p>
+                <h1 className='clubdescription_clubname'>{Club.Name}</h1>
+                <p className='clubdescription_area'>{Club.Area}</p>
                 <div className='clubdescription_tags'>
-                    <Tags Text={'Best Location'}/>
-                    <Tags Text={'SPA'}/>
-                    <Tags Text={'PT'}/>
-                    <Tags Text={'Nutritionist'}/>
+                   {
+                    !Club.Tags?<></>:
+                    Club.Tags.map((elem,index)=>{
+                        return <Tags key={index} Text={elem}/>
+                    })
+                   }
                 </div>
-                <h2 className='clubdescription_city'>Pune</h2>
-                <p className='clubdescriptio_info'>MuscleBlaze Biozyme Performance Whey is crafted exclusively for fitness and muscle-building champions who want their protein supplement to be as effective as their efforts. It is scientifically designed with Enhanced Absorption Formula (EAF®) to maximize the bioavailability of protein for the Indian bodies. It’s a part of MB’s pioneering innovation- the BIOZYME series. The other fitness supplements in this iconic series are Biozyme Whey Iso-Zero & Biozyme Whey Protein.</p>
+                <h2 className='clubdescription_city'>{Club.City}</h2>
+                <p className='clubdescriptio_info'>{Club.Description}</p>
                 <p className='clubdescription_membershiptag'>Membership starting from</p>
-                <p className='clubdescription_starting_price'>₹4,000</p>
-                <button className='clubdescription_member_btn'>Become a member</button>
+                <p className='clubdescription_starting_price'>₹{Club.BasePrice}</p>
+                <button className='clubdescription_member_btn' onClick={plancheck}>Become a member</button>
             </div>
         </div>
     );
