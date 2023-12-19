@@ -16,14 +16,14 @@ function ClubsDescription(props) {
     })
 
     useEffect(()=>{
-        fetch(`http://localhost:8000/clubs/${id}`,{
+        fetch(`https://powerhousefitnessserver.onrender.com/clubs/${id}`,{
             headers:{
                 'authorization':`Bearer ${Token}`
             }
         }).then((response)=>{
             return response.json();
         }).then((response)=>{
-            console.log(response);
+            // console.log(response);
             SetClub(response.Club);
         }).catch((error)=>{
             console.log(error);

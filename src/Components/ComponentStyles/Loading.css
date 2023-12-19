@@ -1,0 +1,11 @@
+.loading{
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loading>h1{
+    color: gray;
+    text-align: center;
+    text-decoration: overline;
+}

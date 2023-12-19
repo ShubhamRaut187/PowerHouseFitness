@@ -29,7 +29,7 @@ function ProductCard({product,token}) {
     }
 
     let AddtoCart = ()=>{
-        fetch(`http://localhost:8000/products/${_id}`,{
+        fetch(`https://powerhousefitnessserver.onrender.com/products/${_id}`,{
             headers:{
                 "authorization":`Bearer ${token}`
             }

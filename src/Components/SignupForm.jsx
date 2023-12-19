@@ -1,7 +1,43 @@
-import React from 'react';
+import React,{useState} from 'react';
+import{useNavigate} from 'react-router-dom'
 
 import './ComponentStyles/SignupForm.css'
 function SignupForm({Setpgname}) {
+    let [Name,SetName] = useState('');
+    let [Email,SetEmail] = useState('');
+    let [Password,SetPassword] = useState('');
+    let [Mobile,SetMobile] = useState(0);
+    let [Address,SetAddress] = useState('')
+    let navigate = useNavigate();
+    let registeruser = (event)=>{
+        if(!Name || !Email || !Password || !Mobile || !Address){
+            return alert('All fields are mandatory...!')
+        }
+        event.preventDefault();
+        fetch(`https://powerhousefitnessserver.onrender.com/auth/signup`,{
+            method:'POST',
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                Name,
+                Password,
+                Email,
+                Mobile,
+                Address,
+                Role:'User'
+            })
+        }).then((response)=>{
+            return response.json();
+        }).then((response)=>{
+            alert(response.Message);
+            navigate('/')
+        }).catch((error)=>{
+            console.log(error);
+            alert('Signup Failed')
+        })
+    }
+
     return (
         <div className='signupform_main'>
             <div className='signupmsg_div'>
@@ -12,12 +48,22 @@ function SignupForm({Setpgname}) {
             <div className='signupform_div'>
                 <h2>Create Your Account</h2>
                 <p>Signup today and embark the journey of physical health, fitness and self confidence with us. Your health and fitness matters to us.</p>
-                <form>
-                    <input type="text" placeholder='Enter Name' className='signupform_input'/>     
-                    <input type="email" placeholder='Enter Username/Email' className='signupform_input'/>
-                    <input type="number" placeholder='Enter Mobile Number' className='signupform_input'/>
-                    <input type="password" placeholder='Enter New Password' className='signupform_input'/>
-                    <input type="text" placeholder='Enter Address' className='signupform_input_address'/>
+                <form onSubmit={registeruser}>
+                    <input type="text" placeholder='Enter Name' className='signupform_input' onChange={(event)=>{
+                        SetName(event.target.value)
+                    }}/>     
+                    <input type="email" placeholder='Enter Username/Email' className='signupform_input'onChange={(event)=>{
+                        SetEmail(event.target.value)
+                    }}/>
+                    <input type="number" placeholder='Enter Mobile Number' className='signupform_input'onChange={(event)=>{
+                        SetMobile(event.target.value)
+                    }}/>
+                    <input type="password" placeholder='Enter New Password' className='signupform_input' onChange={(event)=>{
+                        SetPassword(event.target.value)
+                    }}/>
+                    <input type="text" placeholder='Enter Address' className='signupform_input_address' onChange={(event)=>{
+                        SetAddress(event.target.value)
+                    }}/>
                     <input type="submit" value='SignUp' className='signupform_signup_btn'/>
                 </form>  
                 <p onClick={()=>{

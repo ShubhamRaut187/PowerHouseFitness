@@ -1,6 +1,6 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { handleAddPlan } from '../Redux/action';
 
 // React-Slick
@@ -11,10 +11,30 @@ import "slick-carousel/slick/slick-theme.css";
 import './ComponentStyles/MembershipPlans.css'
 function MembershipPlans(props) {
     let dispatch = useDispatch()
-    let elem = {
-        Plan:'Silver Quarterly',
-        Fees:5000
-    }
+    let [Plans,SetPlans] = useState([]);
+    let Token = useSelector((store)=>{
+      return store.loginReducer.user.Token;
+    })
+    useEffect(()=>{
+      fetch(`https://powerhousefitnessserver.onrender.com/plans`,{
+       headers:{
+          'authorization':`Bearer ${Token}`
+        }
+      }).then((response)=>{
+        return response.json();
+      }).then((response)=>{
+        SetPlans(response.Plans);
+      }).catch((error)=>{
+        console.log(error);
+      })
+    },[Token])
+
+
+
+    // let elem = {
+    //     Plan:'Silver Quarterly',
+    //     Fees:5000
+    // }
     const settings = {
         className: "center",
         dots:true,
@@ -73,7 +93,22 @@ function MembershipPlans(props) {
                 <button className='plan_card_select_btn'>Select Plan</button>
             </div> */}
             <Slider {...settings}>
-            <div>
+              {
+                Plans.map((elem,index)=>{
+                  return <div key={index}>
+                  <div className='plan_card'>
+                      <h2 className='plan_card_name'>{elem.Name}</h2>
+                      <p className='plan_card_duration'>{elem.Validiti} Months</p>
+                      <p className='plan_card_facilities'>{elem.Facilities}</p>
+                      <p className='plan_card_fees'>${elem.Price}</p>
+                      <button className='plan_card_select_btn' onClick={()=>{
+                          dispatch(handleAddPlan(elem))
+                      }}>Select Plan</button>
+                  </div>
+                  </div>
+                })
+              }
+            {/* <div>
             <div className='plan_card'>
                 <h2 className='plan_card_name'>Silver Quaterly</h2>
                 <p className='plan_card_duration'>3 Months</p>
@@ -110,7 +145,7 @@ function MembershipPlans(props) {
                 <p className='plan_card_fees'>$4000</p>
                 <button className='plan_card_select_btn'>Select Plan</button>
             </div>
-            </div>
+            </div> */}
             </Slider>
         </div>
     );

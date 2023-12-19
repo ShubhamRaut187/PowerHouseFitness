@@ -15,7 +15,7 @@ import ProductDescription from '../Pages/ProductDescription';
 import UserProfile from '../Pages/UserProfile';
 import Checkout from '../Pages/Checkout';
 import Cart from '../Pages/Cart';
-
+import ProductCheckout from '../Pages/ProductCheckout';
 
 function AllRoutes(props) {
     return (
@@ -31,6 +31,7 @@ function AllRoutes(props) {
                 <Route path='/userprofile' element={<ProtectedRoutes><UserProfile/></ProtectedRoutes>}/>
                 <Route path='/clubcheckout' element={<ProtectedRoutes><Checkout/></ProtectedRoutes>}/>
                 <Route path='/cart' element={<ProtectedRoutes><Cart/></ProtectedRoutes>}/>
+                <Route path='/productcheckout' element={<ProtectedRoutes><ProductCheckout/></ProtectedRoutes>}/>
             </Routes>
         </div>
     );

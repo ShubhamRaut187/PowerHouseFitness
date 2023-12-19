@@ -1,6 +1,25 @@
-import React from 'react';
+import React,{useRef} from 'react';
 import './ComponentStyles/FranchiseForm.css'
+import emailjs from '@emailjs/browser'
+import { useNavigate } from 'react-router-dom';
 function FranchiseForm(props) {
+    let form = useRef();
+    let navigate = useNavigate();
+    let sendEmail = (event) => {
+        event.preventDefault();
+       
+            emailjs.sendForm('service_psxu7iy', 'template_anihzoe', form.current, '3I6LX4W7ELm1-USwX')
+            .then((result) => {
+                console.log(result.text);
+                // console.log("Succesful")
+                alert('Franchise Enquiry Sent...!')
+                navigate('/')
+                // PostAppointment();
+            }, (error) => {
+                console.log(error.text);
+                console.log("Fail")
+            });
+    }
     return (
         <div className='FranchiseForm_main'>
             <div className='franchiseform_msg_div'>
@@ -9,11 +28,11 @@ function FranchiseForm(props) {
             </div>
             <div className='franchiseform_from_div'>
                 <h1>Franchise enquiry...</h1>
-                <form>
-                    <input type="text" name="" placeholder='Name' className='franchiseform_input'/>
-                    <input type="email" placeholder='Email' className='franchiseform_input'/>
-                    <input type="number" placeholder='Mobile Number' className='franchiseform_input'/>
-                    <select className='franchiseform_input'>
+                <form ref={form} onSubmit={sendEmail}>
+                    <input type="text" name="enquiry_name" placeholder='Name' className='franchiseform_input'/>
+                    <input type="email" name='enquiry_email' placeholder='Email' className='franchiseform_input'/>
+                    <input type="number" name='enquiry_mobile' placeholder='Mobile Number' className='franchiseform_input'/>
+                    <select name='enquiry_city' className='franchiseform_input'>
                         <option value="Mumbai">Mumbai</option>
                         <option value="Pune">Pune</option>
                         <option value="Banglore">Banglore</option>

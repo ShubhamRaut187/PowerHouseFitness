@@ -43,7 +43,7 @@ function ProductDescriptionCard(props) {
     }
 
     useEffect(()=>{
-        fetch(`http://localhost:8000/products/${id}`,{
+        fetch(`https://powerhousefitnessserver.onrender.com/products/${id}`,{
             headers:{
                 'authorization':`Bearer ${Token}`
             }
