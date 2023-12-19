@@ -100,7 +100,7 @@ function MembershipPlans(props) {
                       <h2 className='plan_card_name'>{elem.Name}</h2>
                       <p className='plan_card_duration'>{elem.Validiti} Months</p>
                       <p className='plan_card_facilities'>{elem.Facilities}</p>
-                      <p className='plan_card_fees'>${elem.Price}</p>
+                      <p className='plan_card_fees'>₹{elem.Price}</p>
                       <button className='plan_card_select_btn' onClick={()=>{
                           dispatch(handleAddPlan(elem))
                       }}>Select Plan</button>

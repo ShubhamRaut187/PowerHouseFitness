@@ -83,7 +83,7 @@ function Trainers({Trainers}) {
                             <h2 className='trainer_card_name'>{elem.Name}</h2>
                             <p className='trainer_card_gender'>{elem.Gender}</p>
                             <p className='trainer_card_experties'>{elem.Experties}</p>
-                            <p className='trainer_card_fees'>{elem.Fees}</p>
+                            <p className='trainer_card_fees'>₹{elem.Fees}</p>
                             <button className='trainer_card_select_btn' onClick={()=>{
                                 dispatch(handleAddTrainer(elem))
                             }}>Select Trainer</button>

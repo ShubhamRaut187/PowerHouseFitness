@@ -108,7 +108,7 @@ function ProductCheckout(props) {
         <div className='pcheckout_main'>
             <div className='pcard_details'>
                 <h2>Enter Your Card Details</h2>
-                <h3>£{CartTotal}</h3>
+                <h3>₹{CartTotal}</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad atque rem unde officiis totam, eaque neque consectetur placeat quod ducimus debitis ullam inventore, soluta doloribus iure eum dolores. Velit, neque!</p>
                 <form className='pcard_detais_form' onSubmit={requestotp}>
                     <input type="text" placeholder='Enter your card number' className='pcard_details_input1'onChange={(event)=>{

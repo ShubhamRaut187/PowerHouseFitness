@@ -17,7 +17,7 @@ function CartProductCard({elem,index,handleIncreaseQuantity,handleReduceQuantity
                 <p className='cp_name'>{Name}</p>
                 <p className='cp_category'>{Category}</p>
                 <p className='cp_brand'>{Brand}</p>
-                <p className='cp_price'>£{Price}</p>
+                <p className='cp_price'>₹{Price}</p>
             </div>
             <div className='cp_op_dtn_div'>
                 <div className='cp_qty_btn_div'>

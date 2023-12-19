@@ -99,10 +99,10 @@ function Checkout(props) {
     useEffect(()=>{
         let keys = Object.keys(Membership.Trainer)
         if(keys.length === 0){
-            SetGrandTotal(Membership.Plan.Fees);
+            SetGrandTotal(Membership.Plan.Price);
         }
         else{
-            let Total = Membership.Plan.Fees + Membership.Trainer.Fees
+            let Total = Membership.Plan.Price + Membership.Trainer.Fees
             SetGrandTotal(Total)
         }
     },[Membership.Plan.Fees,Membership.Trainer.Fees,Membership.Trainer])
@@ -112,7 +112,7 @@ function Checkout(props) {
         <div className='checkout_main'>
             <div className='card_details'>
                 <h2>Enter Your Card Details</h2>
-                <h3>£{GrandTotal}</h3>
+                <h3>₹{GrandTotal}</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad atque rem unde officiis totam, eaque neque consectetur placeat quod ducimus debitis ullam inventore, soluta doloribus iure eum dolores. Velit, neque!</p>
                 <form className='card_detais_form' onSubmit={requestotp}>
                     <input type="text" placeholder='Enter your card number' className='card_details_input1'onChange={(event)=>{

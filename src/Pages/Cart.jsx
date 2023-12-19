@@ -96,9 +96,9 @@ function Cart(props) {
                         <p>Review Your Cart and Begin Your Fitness Journey Now!</p>
                     </div>
                     <div className='cd_info_two'>
-                        <p>Cart Subtotal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...£{CartTotal}</p>
-                        <p>Shipping Charges&nbsp;&nbsp;...£100</p>
-                        <p>Grand Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...£{CartTotal+100}</p>
+                        <p>Cart Subtotal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...₹{CartTotal}</p>
+                        <p>Shipping Charges&nbsp;&nbsp;...₹100</p>
+                        <p>Grand Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...₹{CartTotal+100}</p>
                     </div>
                     {/* <button className='cd_clear_cart_btn'>Clear your cart</button> */}
                     <div className='cd_info_three'>
