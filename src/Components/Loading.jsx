@@ -1,9 +1,11 @@
 import React from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
 import './ComponentStyles/Loading.css'
-function LoadingComp(props) {
+function LoadingComp({Text}) {
     return (
         <div className='loading'>
-            <h1>Loading...!</h1>
+            <CircularProgress color='success'/>
+            <h1>{Text}...!</h1>
         </div>
     );
 }

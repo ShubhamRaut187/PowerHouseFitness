@@ -45,6 +45,7 @@ function ProductCard({product,token}) {
             if(!Flag){
                 CartProducts.push(Item);
                 dispatch(handleAddProduct(CartProducts))
+                alert('Product added to cart.')
             }
             else{
                 alert('Item already added to cart!');

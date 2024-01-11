@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import{useNavigate} from 'react-router-dom'
-
+import LoadingComp from './Loading';
 import './ComponentStyles/SignupForm.css'
 function SignupForm({Setpgname}) {
     let [Name,SetName] = useState('');
@@ -8,12 +8,18 @@ function SignupForm({Setpgname}) {
     let [Password,SetPassword] = useState('');
     let [Mobile,SetMobile] = useState(0);
     let [Address,SetAddress] = useState('')
+    let [Loading,SetLoading] = useState(false)
     let navigate = useNavigate();
+
+
+
     let registeruser = (event)=>{
+        event.preventDefault();
+        SetLoading(true);
         if(!Name || !Email || !Password || !Mobile || !Address){
+            SetLoading(false)
             return alert('All fields are mandatory...!')
         }
-        event.preventDefault();
         fetch(`https://powerhousefitnessserver.onrender.com/auth/signup`,{
             method:'POST',
             headers:{
@@ -30,8 +36,17 @@ function SignupForm({Setpgname}) {
         }).then((response)=>{
             return response.json();
         }).then((response)=>{
-            alert(response.Message);
-            navigate('/')
+            
+            if(response.Message === 'SignUp Successful'){
+                alert(response.Message);
+                SetLoading(false)
+                navigate('/')
+            }
+            else{
+                alert(response.Message);
+                SetLoading(false)
+            }
+            
         }).catch((error)=>{
             console.log(error);
             alert('Signup Failed')
@@ -48,7 +63,8 @@ function SignupForm({Setpgname}) {
             <div className='signupform_div'>
                 <h2>Create Your Account</h2>
                 <p>Signup today and embark the journey of physical health, fitness and self confidence with us. Your health and fitness matters to us.</p>
-                <form onSubmit={registeruser}>
+                {
+                    Loading ? <LoadingComp Text={'Creating account'}/> : <form onSubmit={registeruser}>
                     <input type="text" placeholder='Enter Name' className='signupform_input' onChange={(event)=>{
                         SetName(event.target.value)
                     }}/>     
@@ -66,6 +82,7 @@ function SignupForm({Setpgname}) {
                     }}/>
                     <input type="submit" value='SignUp' className='signupform_signup_btn'/>
                 </form>  
+                }
                 <p onClick={()=>{
                     Setpgname({
                         Text:'Login Account',

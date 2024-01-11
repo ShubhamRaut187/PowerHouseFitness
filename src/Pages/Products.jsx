@@ -32,7 +32,7 @@ function Products(props) {
            <PageTitle Title={'Our Products'}/>
            {/* <ProductFilterandSort/> */}
            {
-            Loading ? <LoadingComp/> : 
+            Loading ? <LoadingComp Text={'Loading Products'}/> : 
             <div className='productcards_parent_container'>
             {
                 Products.map((elem,index)=>{

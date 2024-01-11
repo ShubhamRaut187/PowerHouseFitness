@@ -4,6 +4,7 @@ import { handleIncreaseQuantity,handleReduceQuantity,handleRemoveProduct,handleE
 import { useSelector,useDispatch } from 'react-redux';
 import CartProductCard from '../Components/CartProductCard'
 import { useNavigate } from 'react-router-dom';
+import EmptyCart from '../Components/EmptyCart';
 
 // React-Slick
 import Slider from 'react-slick';
@@ -80,43 +81,45 @@ function Cart(props) {
     return (
         <div>
             <PageTitle Title={'Your Cart'}/>
-            <div className='cart_main'>
-                <div className='cart_products_div' >
-                    <Slider {...settings} className='car_slider_comp'>
-                        {
-                            CartProducts.map((elem,index)=>{
-                                return <CartProductCard key={elem._id} elem={elem} index={index} CartProducts={CartProducts} dispatch={dispatch} handleIncreaseQuantity={handleIncreaseQuantity} handleReduceQuantity={handleReduceQuantity} handleRemoveProduct={handleRemoveProduct}/>
-                            })
-                        }
-                    </Slider>
+           {
+            CartProducts.length === 0 ? <EmptyCart/> :  <div className='cart_main'>
+            <div className='cart_products_div' >
+                <Slider {...settings} className='car_slider_comp'>
+                    {
+                        CartProducts.map((elem,index)=>{
+                            return <CartProductCard key={elem._id} elem={elem} index={index} CartProducts={CartProducts} dispatch={dispatch} handleIncreaseQuantity={handleIncreaseQuantity} handleReduceQuantity={handleReduceQuantity} handleRemoveProduct={handleRemoveProduct}/>
+                        })
+                    }
+                </Slider>
+            </div>
+            <div className='cart_details_div'>
+                <div className='cd_info_one'>
+                    <h1>Cart Summary</h1>
+                    <p>Review Your Cart and Begin Your Fitness Journey Now!</p>
                 </div>
-                <div className='cart_details_div'>
-                    <div className='cd_info_one'>
-                        <h1>Cart Summary</h1>
-                        <p>Review Your Cart and Begin Your Fitness Journey Now!</p>
+                <div className='cd_info_two'>
+                    <p>Cart Subtotal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...₹{CartTotal}</p>
+                    <p>Shipping Charges&nbsp;&nbsp;...₹100</p>
+                    <p>Grand Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...₹{CartTotal+100}</p>
+                </div>
+                {/* <button className='cd_clear_cart_btn'>Clear your cart</button> */}
+                <div className='cd_info_three'>
+                    <h3>Select Your Payment Method</h3>
+                    <div className='cd_mode_btn_div'>
+                        <button onClick={()=>{
+                            SetPayment('cash')
+                        }}>Cash</button>
+                        <button onClick={()=>{
+                            SetPayment('online')
+                        }}>Online</button>
                     </div>
-                    <div className='cd_info_two'>
-                        <p>Cart Subtotal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...₹{CartTotal}</p>
-                        <p>Shipping Charges&nbsp;&nbsp;...₹100</p>
-                        <p>Grand Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...₹{CartTotal+100}</p>
-                    </div>
-                    {/* <button className='cd_clear_cart_btn'>Clear your cart</button> */}
-                    <div className='cd_info_three'>
-                        <h3>Select Your Payment Method</h3>
-                        <div className='cd_mode_btn_div'>
-                            <button onClick={()=>{
-                                SetPayment('cash')
-                            }}>Cash</button>
-                            <button onClick={()=>{
-                                SetPayment('online')
-                            }}>Online</button>
-                        </div>
-                    </div>
-                    <div className='cd_info_four'>
-                        <button onClick={Proceed}>Proceed to checkout</button>
-                    </div>
+                </div>
+                <div className='cd_info_four'>
+                    <button onClick={Proceed}>Proceed to checkout</button>
                 </div>
             </div>
+        </div>
+           }
         </div>
     );
 }

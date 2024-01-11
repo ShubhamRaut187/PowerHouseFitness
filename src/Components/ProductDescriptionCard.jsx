@@ -24,8 +24,8 @@ function ProductDescriptionCard(props) {
     let IdentifyDuplicate=()=>{
         let Flag = false;
         for(let i=0;i<CartProducts.length;i++){
-          if(CartProducts[i].title === Item.title){
-           Flag = true;
+          if(CartProducts[i]._id === Item._id){
+            Flag = true;
           }
         }
     
@@ -39,6 +39,7 @@ function ProductDescriptionCard(props) {
           }
           CartProducts.push(FinalItem);
           dispatch(handleAddProduct(CartProducts));
+          alert('Product added to cart.')
         }
     }
 

@@ -1,12 +1,16 @@
-.loading{
+.emptycart_main{
     width: 98%;
+    height: 400px;
+    margin: 20px auto;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    border: 5px solid gray;
+    border-radius: 5px;
 }
-.loading>h1{
-    color: gray;
+.emptycart_main >h1{
     text-align: center;
     font-weight: 900;
+    color: gray;
 }

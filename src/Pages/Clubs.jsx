@@ -33,7 +33,7 @@ function Clubs(props) {
             <PageTitle Title={'Our Clubs'}/>
             {/* <ClubFilter/> */}
              {
-                Loading ? <LoadingComp/> :
+                Loading ? <LoadingComp Text={'Loading Clubs'}/> :
                 <div className='clubcard_parent_container'>
                 {
                     Clubs.map((elem,index)=>{
